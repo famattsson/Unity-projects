@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
 
+
+    [Header("Text")]
+    public Text healthText;
+    public Text shieldsText;
+
+    [Header("Stats")]
     public float health = 100f;
     public float shields = 50f;
     public float healthRegen = 0f;
@@ -15,6 +22,7 @@ public class PlayerStats : MonoBehaviour {
         if(shields > 0)
         {
             shields -= damage;
+            shieldsText.text = "Shields: " + shields;
         }
         else
         {
@@ -23,6 +31,7 @@ public class PlayerStats : MonoBehaviour {
             {
                 Die();
             }
+            healthText.text = "Hull: " + health;
         }
     }
 
@@ -33,7 +42,8 @@ public class PlayerStats : MonoBehaviour {
     }
 
 	void Start () {
-		
-	}
-	
+        healthText.text = "Hull: " + health;
+        shieldsText.text = "Shields: " + shields;
+    }
+
 }
