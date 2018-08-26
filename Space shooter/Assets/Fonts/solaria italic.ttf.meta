@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 6a25e8a49f6409246934dc0138be75ce
+timeCreated: 1535056287
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: solaria
+  fontNames:
+  - solaria
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 45ab655f533e17845bbd1b0089c8d162, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

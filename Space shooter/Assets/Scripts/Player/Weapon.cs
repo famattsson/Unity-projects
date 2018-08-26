@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour {
 
     Transform firePoints;
     public GameObject particle;
+    public AudioClip audioClip;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class Weapon : MonoBehaviour {
         {
             if(firepoint.name.Contains("Fire"))
             {
+                GetComponent<AudioSource>().PlayOneShot(audioClip);
                 Instantiate(particle, firepoint.position, transform.rotation);
             }         
         }

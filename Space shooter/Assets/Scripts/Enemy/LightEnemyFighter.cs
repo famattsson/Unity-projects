@@ -9,10 +9,12 @@ public class LightEnemyFighter : Enemy {
 
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        Base = GameObject.FindGameObjectWithTag("Base");
         count++;
         fireTimer = 1 / firerate;
         rb = GetComponent<Rigidbody2D>();
-
+        BaseArea = new Rect(Base.transform.position.x-1, Base.transform.position.y-1, 2, 2);
         foreach (Transform child in transform)
         {
             if (child.name.Contains("Fire"))
@@ -23,13 +25,14 @@ public class LightEnemyFighter : Enemy {
         originalAngle = rb.rotation;
     }
 
-    override protected void Die()
+    override public void Die(bool playSound, bool isOutOfBounds = false)
     {
-        if(count > 0)
+        if (count > 0)
         {
             count--;
         }
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, 0.3f);
+        base.Die(playSound,isOutOfBounds);
     }
 
     override public void Damage(float damage)
@@ -37,7 +40,7 @@ public class LightEnemyFighter : Enemy {
         health -= damage;
         if (health == 0 && !hasdied)
         {
-            Die();
+            Die(true);
         }
     }
 }

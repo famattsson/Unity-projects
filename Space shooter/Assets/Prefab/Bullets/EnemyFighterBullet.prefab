@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114072072866686676}
   m_Layer: 11
   m_Name: EnemyFighterBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +243,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.57254905, g: 0.8078432, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.8078432, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3543,7 +3543,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b39de1ff03b2054f84193ec2cccb13b, type: 3}
-  m_Color: {r: 0.5735294, g: 0.8058824, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.80689657, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

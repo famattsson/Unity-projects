@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     float originalAngle = 0;
-    float moveSpeed = 2.7f;
+    public float moveSpeed = 2.7f;
+
+    public Animator animator;
     Rigidbody2D rb;
 
 	// Use this for initialization
@@ -35,13 +37,36 @@ public class PlayerController : MonoBehaviour {
 
     void Move ()
     {
-        if (Input.GetButton("Horizontal"))
+        if(Input.GetButton("Horizontal")  || Input.GetButton("Vertical"))
         {
-            rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0), ForceMode2D.Impulse);
+            if (Input.GetButton("Horizontal"))
+            {
+                rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0), ForceMode2D.Impulse);
+                if(Input.GetAxis("Horizontal") < 0)
+                {
+                    triggerAnimBool("MovingLeft", true);
+                    triggerAnimBool("MovingRight", false);
+                }
+                else if (Input.GetAxis("Horizontal") > 0)
+                {
+                    triggerAnimBool("MovingLeft", false);
+                    triggerAnimBool("MovingRight", true);
+                }
+            }
+            if (Input.GetButton("Vertical"))
+            {
+                rb.AddForce(new Vector2(0, Input.GetAxis("Vertical") * moveSpeed), ForceMode2D.Impulse);
+            }
+            return;
         }
-        if (Input.GetButton("Vertical"))
-        {
-            rb.AddForce(new Vector2(0, Input.GetAxis("Vertical") * moveSpeed), ForceMode2D.Impulse);
-        }
+
+        triggerAnimBool("MovingLeft", false);
+        triggerAnimBool("MovingRight", false);
+
+    }
+
+    void triggerAnimBool (string name, bool tof)
+    {
+        animator.SetBool(name, tof);
     }
 }
