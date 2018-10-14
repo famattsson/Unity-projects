@@ -22,7 +22,6 @@ public class EnemyGraphics : MonoBehaviour {
         }
         else if (isOutOfBounds == 1)
         {
-            Debug.Log(isOutOfBounds);
             GetComponentInParent<Enemy>().Die(false,true);
         }
     }

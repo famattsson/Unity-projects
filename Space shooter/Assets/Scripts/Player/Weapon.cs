@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour {
         {
             if(firepoint.name.Contains("Fire"))
             {
-                GetComponent<AudioSource>().PlayOneShot(audioClip);
+                GetComponent<AudioSource>().PlayOneShot(audioClip, 0.2f);
                 Instantiate(particle, firepoint.position, transform.rotation);
             }         
         }

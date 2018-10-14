@@ -41,15 +41,15 @@ public class PlayerGraphics : MonoBehaviour {
     }
     public void TriggerWin()
     {
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOverMenu("Victory!");
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().WinMenu();
     }
 
     public void PlayLightJumpSound ()
     {
-        audioSource.PlayOneShot(WinSound);
+        audioSource.PlayOneShot(WinSound,1);
     }
     public void PlayDeathSound()
     {
-        audioSource.PlayOneShot(DeathSound);
+        audioSource.PlayOneShot(DeathSound,1);
     }
 }

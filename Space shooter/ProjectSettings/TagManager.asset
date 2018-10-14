@@ -8,6 +8,9 @@ TagManager:
   - GameManager
   - Bullet
   - Base
+  - PlayerShield
+  - Obstacle
+  - DragDropInfo
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - PlayerBullet
   - Enemy
   - EnemyBullet
-  - 
+  - Obstacle
   - 
   - 
   - 

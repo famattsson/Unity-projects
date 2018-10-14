@@ -22,15 +22,19 @@ public class Base : MonoBehaviour {
         hasDied = false;
         health = maxHealth;
         UpdateHealth();
-        defaultSprite = GetComponent<SpriteRenderer>().sprite;
         OriginalTransform = transform;
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
+
+    public void SetSprite (Sprite sprite)
+    {
+        defaultSprite = sprite;
+    }
 
     private void UpdateHealth(float delta = 0)
     {
@@ -67,17 +71,23 @@ public class Base : MonoBehaviour {
 
     }
 
+    public void changeSprite(Sprite sprite)
+    {
+        GetComponent<SpriteRenderer>().sprite = sprite;
+    }
+
     public void Reset()
     {
         GetComponent<Animator>().ResetTrigger("Reset");
         GetComponent<Animator>().SetTrigger("Reset");
-        
+        GetComponent<Animator>().enabled = false; ;
         health = maxHealth;
         GetComponent<SpriteRenderer>().sprite = defaultSprite;
         transform.SetPositionAndRotation(OriginalTransform.position, OriginalTransform.rotation);
         transform.localScale = OriginalTransform.localScale;
         UpdateHealth();
         hasDied = false;
+        GetComponent<Animator>().enabled = true;
     }
     public void StartDeathEffect()
     {

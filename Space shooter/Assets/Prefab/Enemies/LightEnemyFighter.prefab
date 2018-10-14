@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 60101032372608304}
   - component: {fileID: 114290341185393352}
   - component: {fileID: 82465653928782974}
+  - component: {fileID: 114988554756435550}
   m_Layer: 10
   m_Name: LightEnemyFighter
   m_TagString: Enemy
@@ -265,7 +266,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 10.11
+  m_LinearDrag: 10
   m_AngularDrag: 5.13
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -420,13 +421,13 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 660980cfb2260dd4ea81ad3889a9e191, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -517,7 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09128addb5a4ca24397a9e79f284fb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.25
   bullet: {fileID: 1297008539102858, guid: 5187052bf3b9b7445a8afe3625e53c60, type: 2}
   health: 10
   baseDamage: 10
@@ -528,6 +528,9 @@ MonoBehaviour:
     type: 2}
   animator: {fileID: 95124883799922980}
   deathSound: {fileID: 8300000, guid: 660980cfb2260dd4ea81ad3889a9e191, type: 3}
+  shootSound: {fileID: 8300000, guid: d81869cf354a0394a8338ab2000217b5, type: 3}
+  moveSpeed: 0.25
+  UpdateRate: 2
 --- !u!114 &114634018310812052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,6 +542,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bede920d4be9d24e9adea0b1ffbc4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114988554756435550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170451401257584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 1
+    exactEndPoint: 1
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!198 &198838086373558972
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -23,7 +23,9 @@ public class PlayerStats : MonoBehaviour {
     public float healthRegen = 1f;
     public float shieldRegen = 4f;
     public float shieldRegenDelay = 2f;
+    public GameObject shieldEffect;
 
+    [Header("Misc")]
     public Animator animator;
     private bool hasDied = false;
     private Vector2 originalPosition;
@@ -57,7 +59,16 @@ public class PlayerStats : MonoBehaviour {
         shield += delta;
         shield = Mathf.Clamp(shield, 0, maxShield);
         shieldbar.fillAmount = shield / maxShield;
+        animator.SetLayerWeight(1, shield / maxShield);
         shieldText.text = Math.Round(shield, 2).ToString();
+        if(shield > 0)
+        {
+            shieldEffect.SetActive(true);
+        }
+        else if(shield == 0)
+        {
+            shieldEffect.SetActive(false);
+        }
     }
 
 
@@ -72,6 +83,7 @@ public class PlayerStats : MonoBehaviour {
         if(shield > 0)
         {
             UpdateShield(-damage);
+            animator.SetTrigger("DamageShield");
             shieldRegenTimer = 0f;
         }
         else

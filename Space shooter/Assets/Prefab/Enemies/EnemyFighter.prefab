@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114577476432486198}
   - component: {fileID: 60184422304151032}
   - component: {fileID: 82358566951982728}
+  - component: {fileID: 114514754639167228}
   m_Layer: 10
   m_Name: EnemyFighter
   m_TagString: Enemy
@@ -163,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170451401257584}
   m_LocalRotation: {x: -0, y: -0, z: 0.99997914, w: 0.0064651007}
-  m_LocalPosition: {x: -3.68, y: -5.26, z: 0}
+  m_LocalPosition: {x: -0.73980963, y: 6.6835976, z: 0}
   m_LocalScale: {x: 0.53141546, y: 0.53141546, z: 0.53141546}
   m_Children:
   - {fileID: 4308814296538946}
@@ -375,15 +376,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243184295557055080, guid: 181bfd06af6e79747b6e7e26ff8e66cd,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 660980cfb2260dd4ea81ad3889a9e191, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -474,6 +475,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bede920d4be9d24e9adea0b1ffbc4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114514754639167228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170451401257584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 1
+    exactEndPoint: 1
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!114 &114577476432486198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -485,7 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7384772c78c2b44bcd4dbda2227c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
   bullet: {fileID: 1297008539102858, guid: 9726fb8b2a42a1c4da9ae4cdae6d1439, type: 2}
   health: 15
   baseDamage: 15
@@ -496,6 +522,9 @@ MonoBehaviour:
     type: 2}
   animator: {fileID: 95498800085899312}
   deathSound: {fileID: 8300000, guid: 660980cfb2260dd4ea81ad3889a9e191, type: 3}
+  shootSound: {fileID: 8300000, guid: 4048849052a38094ebb0c5d49d13d7ac, type: 3}
+  moveSpeed: 0.2
+  UpdateRate: 2
 --- !u!198 &198069549320513992
 ParticleSystem:
   m_ObjectHideFlags: 1

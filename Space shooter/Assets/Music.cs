@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class Music : MonoBehaviour {
 
-    public AudioClip[] audioClips;
+    public AudioClip[] gMAudioClips;
     public AudioSource audioSource;
+    GameManager gameManager;
 
-	// Use this for initialization
 	void Start () {
-        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length - 1)]);
+        gameManager = GetComponent<GameManager>();
+        PlayTrack();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if(!audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length - 1)]);
+            PlayTrack();            
         }
 	}
+
+    public void PlayTrack ()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(SelectClip());
+    }
+
+    AudioClip SelectClip()
+    {
+        if(gameManager.galaxyMap.activeSelf)
+        {
+            return gMAudioClips[Random.Range(0, gMAudioClips.Length)];
+        }
+        else
+        {
+            if(gameManager.Planet != null)
+            return gameManager.Planet.audioClips[Random.Range(0, gameManager.Planet.audioClips.Length)];
+        }
+        return null;
+    }
 }
